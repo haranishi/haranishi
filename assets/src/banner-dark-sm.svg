@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 274" width="560" height="274" role="img" aria-label="Ikki Nishihara — product builder at Lilac">
+  <title>Ikki Nishihara — Product Builder, Lilac</title>
+
+  <!-- Phone crop of banner-dark.svg. The desktop banner is a 5:1 strip; scaled into a
+       ~358px column its type lands under 11px and stops being readable. Same design,
+       taller box, so the name survives the downscale. -->
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#16131f"/>
+      <stop offset="0.55" stop-color="#100f1a"/>
+      <stop offset="1" stop-color="#171128"/>
+    </linearGradient>
+
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#a78bfa" stop-opacity="0.42"/>
+      <stop offset="0.6" stop-color="#8b5cf6" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="face" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c4b5fd" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#8b5cf6" stop-opacity="0.05"/>
+    </linearGradient>
+
+    <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#a78bfa" stop-opacity="0"/>
+    </linearGradient>
+
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1.2" cy="1.2" r="1.2" fill="#a78bfa"/>
+    </pattern>
+
+    <linearGradient id="dotfade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="0.45" stop-color="#fff" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0.30"/>
+    </linearGradient>
+    <mask id="dotmask"><rect width="560" height="250" fill="url(#dotfade)"/></mask>
+
+    <clipPath id="round"><rect width="560" height="250" rx="8"/></clipPath>
+  </defs>
+
+  <style>
+    .float  { animation: drift 7s ease-in-out infinite; }
+    .float2 { animation: drift 7s ease-in-out infinite; animation-delay: -2.3s; }
+    .float3 { animation: drift 7s ease-in-out infinite; animation-delay: -4.6s; }
+    .pulse  { animation: breathe 7s ease-in-out infinite; }
+    @keyframes drift   { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+    @keyframes breathe { 0%,100% { opacity: 0.75; } 50% { opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) {
+      .float, .float2, .float3, .pulse { animation: none; }
+    }
+    .name { font: 700 54px ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+    .kick { font: 600 18px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: 1.6px; }
+    .sub  { font: 400 26px ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  </style>
+
+  <g clip-path="url(#round)">
+    <rect width="560" height="250" fill="url(#bg)"/>
+    <rect width="560" height="250" fill="url(#dots)" mask="url(#dotmask)" opacity="0.5"/>
+    <ellipse cx="450" cy="70" rx="150" ry="105" fill="url(#glow)" class="pulse"/>
+
+    <g stroke-linejoin="round">
+      <g class="float">
+        <path d="M450 44 L502 70 L450 96 L398 70 Z" fill="url(#face)" stroke="#a78bfa" stroke-opacity="0.55" stroke-width="1.4"/>
+      </g>
+      <g class="float2">
+        <path d="M450 18 L502 44 L450 70 L398 44 Z" fill="url(#face)" stroke="#c4b5fd" stroke-opacity="0.75" stroke-width="1.4"/>
+        <circle cx="450" cy="18" r="2.6" fill="#c4b5fd"/>
+      </g>
+      <g class="float3">
+        <path d="M450 70 L502 96 L450 122 L398 96 Z" fill="none" stroke="#8b5cf6" stroke-opacity="0.40" stroke-width="1.4" stroke-dasharray="4 5"/>
+      </g>
+    </g>
+
+    <text class="name" x="26" y="156" fill="#e6edf3">Ikki Nishihara</text>
+    <rect x="28" y="172" width="100" height="2" rx="1" fill="url(#rule)"/>
+    <text class="sub" x="28" y="206" fill="#a78bfa">西原 一輝</text>
+    <text class="kick" x="28" y="238" fill="#c9d1d9">SOLO PRODUCT BUILDER · JAPAN · LILAC</text>
+    <rect x="0.5" y="0.5" width="559" height="249" rx="8" fill="none" stroke="#a78bfa" stroke-opacity="0.20"/>
+  </g>
+</svg>

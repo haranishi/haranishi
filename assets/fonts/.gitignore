@@ -1,0 +1,8 @@
+# This repo is the public GitHub profile: everything under assets/ ships.
+# The fonts are a build-time input for harness/text2path.py, never a runtime
+# asset -- the banners contain outlined <path> data, so nothing here is served.
+# Keeping ~10 MB of binaries out of a profile repo, and out of every clone.
+#
+# Re-fetch with the URLs recorded in docs/fonts.md.
+*
+!.gitignore

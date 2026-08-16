@@ -1,0 +1,6 @@
+# The profile repository is public. Only README.md and assets/ belong in it.
+#
+# docs/ holds the internal requirements, which name a client the profile must not
+# mention; harness/ is the local verification rig and pulls in node_modules.
+docs/
+harness/
