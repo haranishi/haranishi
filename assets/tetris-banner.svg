@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 300" role="img" aria-labelledby="title description">
   <title id="title">西原 一輝</title>
-  <desc id="description">テトリス風のカラフルなブロックが落下し、西原 一輝の名前が現れるアニメーション</desc>
+  <desc id="description">テトリス風のブロックが回転しながら落下し、立体的な西原 一輝の名前を組み上げて繰り返すアニメーション</desc>
   <defs>
     <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
       <path d="M20 0H0V20" fill="none" stroke="#ffffff" stroke-opacity=".035"/>
@@ -13,42 +13,83 @@
       <feGaussianBlur stdDeviation="5" result="blur"/>
       <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
+    <linearGradient id="scanner" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#22d3ee" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#67e8f9"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </linearGradient>
     <style>
-      .piece { animation: drop .72s cubic-bezier(.2,.85,.25,1.18) both; }
-      .p1 { animation-delay: .12s; }
-      .p2 { animation-delay: .36s; }
-      .p3 { animation-delay: .62s; }
-      .p4 { animation-delay: .9s; }
-      .p5 { animation-delay: 1.18s; }
-      .p6 { animation-delay: 1.45s; }
-      .name-tile {
-        animation: tile-in .4s steps(4, end) both;
+      .piece {
+        opacity: 0;
+        animation: piece-loop 12s cubic-bezier(.2,.78,.2,1) infinite both;
         transform-box: fill-box;
         transform-origin: center;
       }
-      .n1 { animation-delay: 2.05s; }
-      .n2 { animation-delay: 2.2s; }
-      .n3 { animation-delay: 2.35s; }
-      .n4 { animation-delay: 2.5s; }
-      .challenge { animation: fade-up .55s ease-out 2.78s both; }
-      .cursor { animation: blink 1s steps(1, end) 3.2s infinite; }
-      @keyframes drop {
-        0% { opacity: 0; transform: translateY(-270px); }
-        65% { opacity: 1; transform: translateY(7px); }
-        82% { transform: translateY(-3px); }
-        100% { opacity: 1; transform: translateY(0); }
+      .p1 { animation-delay: 0s; }
+      .p2 { animation-delay: .2s; }
+      .p3 { animation-delay: .4s; }
+      .p4 { animation-delay: .6s; }
+      .p5 { animation-delay: .8s; }
+      .p6 { animation-delay: 1s; }
+      .name-rig {
+        animation: rig-loop 12s ease-in-out infinite;
+        transform-box: fill-box;
+        transform-origin: center;
       }
-      @keyframes tile-in {
-        0% { opacity: 0; transform: scale(.7) translateY(-12px); }
-        100% { opacity: 1; transform: scale(1) translateY(0); }
+      .name-tile {
+        opacity: 0;
+        animation: tile-loop 12s cubic-bezier(.22,.8,.2,1) infinite both;
+        transform-box: fill-box;
+        transform-origin: center;
+        transform-style: preserve-3d;
       }
-      @keyframes fade-up {
-        from { opacity: 0; transform: translateY(8px); }
-        to { opacity: 1; transform: translateY(0); }
+      .n1 { animation-delay: 0s; }
+      .n2 { animation-delay: .14s; }
+      .n3 { animation-delay: .28s; }
+      .n4 { animation-delay: .42s; }
+      .challenge { opacity: 0; animation: challenge-loop 12s ease-in-out infinite both; }
+      .cursor { animation: blink .72s steps(1, end) infinite; }
+      .scan-beam { opacity: 0; animation: scan-loop 12s linear infinite; }
+      .clear-line { opacity: 0; animation: clear-loop 12s ease-out infinite; }
+      .reset-mark { opacity: 0; animation: reset-loop 12s steps(6, end) infinite; transform-box: fill-box; transform-origin: center; }
+      .reset-ring { animation: ring-spin 1.15s linear infinite; transform-box: fill-box; transform-origin: center; }
+      .loop-dot { animation: loop-dot 1.1s ease-in-out infinite alternate; }
+      @keyframes piece-loop {
+        0%, 2% { opacity: 0; transform: translateY(-300px) rotate(0deg) scale(.65); }
+        8% { opacity: 1; }
+        15% { transform: translateY(-145px) rotate(90deg) scale(.86); }
+        23% { opacity: 1; transform: translateY(8px) rotate(180deg) scale(1); }
+        27%, 70% { opacity: 1; transform: translateY(0) rotate(180deg) scale(1); }
+        76% { opacity: 1; transform: translateY(-8px) rotate(540deg) scale(1.08); }
+        84%, 100% { opacity: 0; transform: translateY(330px) rotate(720deg) scale(.55); }
       }
+      @keyframes tile-loop {
+        0%, 21% { opacity: 0; transform: perspective(520px) translateY(-86px) rotateX(-70deg) rotateY(-110deg) scale(.55); }
+        29% { opacity: 1; transform: perspective(520px) translateY(7px) rotateX(8deg) rotateY(18deg) scale(1.06); }
+        34% { opacity: 1; transform: perspective(520px) translateY(0) rotateX(0deg) rotateY(0deg) scale(1); }
+        45% { transform: perspective(520px) translateY(-6px) rotateX(8deg) rotateY(-13deg) scale(1.02); }
+        56% { transform: perspective(520px) translateY(3px) rotateX(-6deg) rotateY(12deg) scale(.99); }
+        67% { transform: perspective(520px) translateY(-5px) rotateX(7deg) rotateY(-10deg) scale(1.02); }
+        73% { opacity: 1; transform: perspective(520px) translateY(0) rotateX(0deg) rotateY(0deg) scale(1); }
+        82%, 100% { opacity: 0; transform: perspective(520px) translateY(100px) rotateX(180deg) rotateY(270deg) scale(.25); }
+      }
+      @keyframes rig-loop {
+        0%, 31% { transform: translateY(0) rotate(0deg) skewX(0deg); }
+        42% { transform: translateY(-4px) rotate(-1.6deg) skewX(-1deg); }
+        54% { transform: translateY(3px) rotate(1.4deg) skewX(1deg); }
+        66% { transform: translateY(-3px) rotate(-1deg) skewX(-.6deg); }
+        75%, 100% { transform: translateY(0) rotate(0deg) skewX(0deg); }
+      }
+      @keyframes challenge-loop { 0%, 30%, 86%, 100% { opacity: 0; transform: translateY(8px); } 37%, 78% { opacity: 1; transform: translateY(0); } }
+      @keyframes scan-loop { 0%, 34% { opacity: 0; transform: translateX(0); } 38% { opacity: .9; } 68% { opacity: .9; transform: translateX(584px); } 72%, 100% { opacity: 0; transform: translateX(584px); } }
+      @keyframes clear-loop { 0%, 72% { opacity: 0; transform: scaleX(.05); } 76% { opacity: 1; transform: scaleX(1); } 81%, 100% { opacity: 0; transform: scaleX(1); } }
+      @keyframes reset-loop { 0%, 82% { opacity: 0; transform: scale(.6); } 87%, 96% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1.3); } }
+      @keyframes ring-spin { to { transform: rotate(360deg); } }
       @keyframes blink { 0%, 48% { opacity: 1; } 49%, 100% { opacity: 0; } }
+      @keyframes loop-dot { from { opacity: .25; } to { opacity: 1; } }
       @media (prefers-reduced-motion: reduce) {
-        .piece, .name-tile, .challenge, .cursor { animation: none; opacity: 1; transform: none; }
+        .piece, .name-rig, .name-tile, .challenge, .cursor, .scan-beam, .clear-line, .reset-mark, .reset-ring, .loop-dot { animation: none; opacity: 1; transform: none; }
+        .scan-beam, .clear-line, .reset-mark { opacity: 0; }
       }
     </style>
   </defs>
@@ -59,7 +100,7 @@
 
   <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" letter-spacing="2">
     <text x="30" y="31" fill="#64748b">PLAYER 01</text>
-    <text x="850" y="31" text-anchor="end" fill="#64748b">BUILD MODE</text>
+    <text x="850" y="31" text-anchor="end" fill="#64748b">LOOP <tspan class="loop-dot" fill="#22d3ee">●</tspan></text>
   </g>
   <path d="M30 43H850" stroke="#263244"/>
 
@@ -92,22 +133,40 @@
     <rect x="693" y="261" width="22" height="22" rx="3"/><rect x="715" y="261" width="22" height="22" rx="3"/>
   </g>
 
-  <!-- The name arrives one block at a time -->
+  <!-- The extruded name builds, floats and tumbles away as one continuous loop -->
+  <g class="name-rig">
   <g class="name-tile n1" filter="url(#glow)">
+    <path d="M220 92L228 84H314L306 92Z" fill="#1d5b6b" stroke="#67e8f9" stroke-opacity=".75"/>
+    <path d="M306 92L314 84V170L306 178Z" fill="#082f3b" stroke="#0891b2"/>
     <rect x="220" y="92" width="86" height="86" rx="8" fill="#102a35" stroke="#22d3ee" stroke-width="2"/>
     <text x="263" y="154" text-anchor="middle" fill="#ecfeff" font-family="ui-sans-serif, system-ui, 'Noto Sans JP', sans-serif" font-size="58" font-weight="800">西</text>
   </g>
   <g class="name-tile n2" filter="url(#glow)">
+    <path d="M316 92L324 84H410L402 92Z" fill="#5b3f86" stroke="#c4b5fd" stroke-opacity=".75"/>
+    <path d="M402 92L410 84V170L402 178Z" fill="#24143e" stroke="#7c3aed"/>
     <rect x="316" y="92" width="86" height="86" rx="8" fill="#291f3d" stroke="#a78bfa" stroke-width="2"/>
     <text x="359" y="154" text-anchor="middle" fill="#faf5ff" font-family="ui-sans-serif, system-ui, 'Noto Sans JP', sans-serif" font-size="58" font-weight="800">原</text>
   </g>
   <g class="name-tile n3" filter="url(#glow)">
+    <path d="M478 92L486 84H572L564 92Z" fill="#745512" stroke="#fde68a" stroke-opacity=".75"/>
+    <path d="M564 92L572 84V170L564 178Z" fill="#3b2804" stroke="#d97706"/>
     <rect x="478" y="92" width="86" height="86" rx="8" fill="#35270d" stroke="#fbbf24" stroke-width="2"/>
     <text x="521" y="154" text-anchor="middle" fill="#fffbeb" font-family="ui-sans-serif, system-ui, 'Noto Sans JP', sans-serif" font-size="58" font-weight="800">一</text>
   </g>
   <g class="name-tile n4" filter="url(#glow)">
+    <path d="M574 92L582 84H668L660 92Z" fill="#22633e" stroke="#bbf7d0" stroke-opacity=".75"/>
+    <path d="M660 92L668 84V170L660 178Z" fill="#0c3b22" stroke="#16a34a"/>
     <rect x="574" y="92" width="86" height="86" rx="8" fill="#123322" stroke="#4ade80" stroke-width="2"/>
     <text x="617" y="154" text-anchor="middle" fill="#f0fdf4" font-family="ui-sans-serif, system-ui, 'Noto Sans JP', sans-serif" font-size="58" font-weight="800">輝</text>
+  </g>
+  </g>
+
+  <rect class="scan-beam" x="145" y="68" width="8" height="136" fill="url(#scanner)" filter="url(#glow)"/>
+  <rect class="clear-line" x="145" y="205" width="590" height="7" rx="3.5" fill="#ecfeff" filter="url(#glow)"/>
+  <g class="reset-mark" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="middle">
+    <circle class="reset-ring" cx="440" cy="138" r="38" fill="none" stroke="#22d3ee" stroke-width="3" stroke-dasharray="20 10" filter="url(#glow)"/>
+    <text x="440" y="135" fill="#e2e8f0" font-size="10" font-weight="700" letter-spacing="2">NEXT</text>
+    <text x="440" y="150" fill="#94a3b8" font-size="9" letter-spacing="2">ROUND</text>
   </g>
 
   <g class="challenge" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="middle">
