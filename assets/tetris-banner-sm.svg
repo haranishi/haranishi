@@ -12,8 +12,12 @@
     <linearGradient id="scanner" x1="0" y1="0" x2="1" y2="0">
       <stop stop-color="#22d3ee" stop-opacity="0"/><stop offset=".5" stop-color="#67e8f9"/><stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
     </linearGradient>
+    <radialGradient id="auraCyan"><stop stop-color="#22d3ee" stop-opacity=".46"/><stop offset="1" stop-color="#22d3ee" stop-opacity="0"/></radialGradient>
+    <radialGradient id="auraPink"><stop stop-color="#ec4899" stop-opacity=".38"/><stop offset="1" stop-color="#a855f7" stop-opacity="0"/></radialGradient>
+    <linearGradient id="rainbow" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#22d3ee"/><stop offset=".25" stop-color="#a78bfa"/><stop offset=".5" stop-color="#fb7185"/><stop offset=".75" stop-color="#fbbf24"/><stop offset="1" stop-color="#4ade80"/></linearGradient>
+    <filter id="softBlur" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="22"/></filter>
     <style>
-      .piece { opacity:0; animation:piece-loop 12s cubic-bezier(.2,.78,.2,1) infinite both; transform-box:fill-box; transform-origin:center; }
+      .piece { opacity:0; animation:piece-loop 12s cubic-bezier(.2,.78,.2,1) infinite both; transform-box:fill-box; transform-origin:center; filter:url(#glow); }
       .p1 { animation-delay:0s }.p2 { animation-delay:.24s }.p3 { animation-delay:.48s }.p4 { animation-delay:.72s }
       .name-rig { animation:rig-loop 12s ease-in-out infinite; transform-box:fill-box; transform-origin:center; }
       .name-tile { opacity:0; animation:tile-loop 12s cubic-bezier(.22,.8,.2,1) infinite both; transform-box:fill-box; transform-origin:center; transform-style:preserve-3d; }
@@ -25,6 +29,16 @@
       .reset-mark { opacity:0; animation:reset-loop 12s steps(6,end) infinite; transform-box:fill-box; transform-origin:center; }
       .reset-ring { animation:ring-spin 1.15s linear infinite; transform-box:fill-box; transform-origin:center; }
       .loop-dot { animation:loop-dot 1.1s ease-in-out infinite alternate; }
+      .playfield { animation:field-pulse 3s ease-in-out infinite alternate; }
+      .aura-a { animation:aura-a 5.5s ease-in-out infinite alternate; transform-box:fill-box; transform-origin:center; }
+      .aura-b { animation:aura-b 7s ease-in-out infinite alternate; transform-box:fill-box; transform-origin:center; }
+      .star { animation:twinkle 1.2s ease-in-out infinite alternate; }.s2 { animation-delay:-.4s }.s3 { animation-delay:-.8s }
+      .burst-ring { opacity:0; animation:burst-loop 12s ease-out infinite; transform-box:fill-box; transform-origin:center; }.burst-ring.r2 { animation-delay:.18s }
+      .spark-burst { opacity:0; animation:spark-loop 12s ease-out infinite; transform-box:fill-box; transform-origin:center; }
+      .combo { opacity:0; animation:combo-loop 12s steps(5,end) infinite; transform-box:fill-box; transform-origin:center; }
+      .tile-glint { animation:glint-loop 1.4s ease-in-out infinite alternate; }
+      .screen-flash { opacity:0; animation:flash-loop 12s ease-out infinite; }
+      .debris-cloud { opacity:0; animation:debris-loop 12s ease-out infinite; transform-box:fill-box; transform-origin:center; }
       @keyframes piece-loop { 0%,2% { opacity:0; transform:translateY(-290px) rotate(0deg) scale(.65) } 8% { opacity:1 } 15% { transform:translateY(-140px) rotate(90deg) scale(.86) } 23% { opacity:1; transform:translateY(8px) rotate(180deg) scale(1) } 27%,70% { opacity:1; transform:translateY(0) rotate(180deg) scale(1) } 76% { opacity:1; transform:translateY(-8px) rotate(540deg) scale(1.08) } 84%,100% { opacity:0; transform:translateY(350px) rotate(720deg) scale(.55) } }
       @keyframes tile-loop { 0%,21% { opacity:0; transform:perspective(440px) translateY(-82px) rotateX(-70deg) rotateY(-110deg) scale(.55) } 29% { opacity:1; transform:perspective(440px) translateY(7px) rotateX(8deg) rotateY(18deg) scale(1.06) } 34% { opacity:1; transform:perspective(440px) translateY(0) rotateX(0deg) rotateY(0deg) scale(1) } 45% { transform:perspective(440px) translateY(-6px) rotateX(8deg) rotateY(-13deg) scale(1.02) } 56% { transform:perspective(440px) translateY(3px) rotateX(-6deg) rotateY(12deg) scale(.99) } 67% { transform:perspective(440px) translateY(-5px) rotateX(7deg) rotateY(-10deg) scale(1.02) } 73% { opacity:1; transform:perspective(440px) translateY(0) rotateX(0deg) rotateY(0deg) scale(1) } 82%,100% { opacity:0; transform:perspective(440px) translateY(110px) rotateX(180deg) rotateY(270deg) scale(.25) } }
       @keyframes rig-loop { 0%,31% { transform:translateY(0) rotate(0deg) skewX(0deg) } 42% { transform:translateY(-4px) rotate(-1.6deg) skewX(-1deg) } 54% { transform:translateY(3px) rotate(1.4deg) skewX(1deg) } 66% { transform:translateY(-3px) rotate(-1deg) skewX(-.6deg) } 75%,100% { transform:translateY(0) rotate(0deg) skewX(0deg) } }
@@ -35,19 +49,44 @@
       @keyframes ring-spin { to { transform:rotate(360deg) } }
       @keyframes blink { 0%,48% { opacity:1 } 49%,100% { opacity:0 } }
       @keyframes loop-dot { from { opacity:.25 } to { opacity:1 } }
-      @media (prefers-reduced-motion:reduce) { .piece,.name-rig,.name-tile,.challenge,.cursor,.scan-beam,.clear-line,.reset-mark,.reset-ring,.loop-dot { animation:none; opacity:1; transform:none } .scan-beam,.clear-line,.reset-mark { opacity:0 } }
+      @keyframes field-pulse { from { stroke:#263244 } to { stroke:#22d3ee } }
+      @keyframes aura-a { from { opacity:.45; transform:translate(-20px,-8px) scale(.86) } to { opacity:.9; transform:translate(32px,12px) scale(1.22) } }
+      @keyframes aura-b { from { opacity:.35; transform:translate(26px,16px) scale(1.15) } to { opacity:.8; transform:translate(-36px,-12px) scale(.88) } }
+      @keyframes twinkle { from { opacity:.15 } to { opacity:1 } }
+      @keyframes burst-loop { 0%,25% { opacity:0; transform:scale(.25) } 29% { opacity:1 } 40%,100% { opacity:0; transform:scale(3.7) } }
+      @keyframes spark-loop { 0%,27% { opacity:0; transform:rotate(0deg) scale(.3) } 32% { opacity:1 } 58% { opacity:.85; transform:rotate(165deg) scale(1.1) } 73%,100% { opacity:0; transform:rotate(310deg) scale(1.4) } }
+      @keyframes combo-loop { 0%,30% { opacity:0; transform:scale(.5) rotate(-8deg) } 34% { opacity:1; transform:scale(1.3) rotate(4deg) } 39%,70% { opacity:1; transform:scale(1) rotate(0deg) } 76%,100% { opacity:0; transform:scale(1.5) rotate(8deg) } }
+      @keyframes glint-loop { from { opacity:.06 } to { opacity:.4 } }
+      @keyframes flash-loop { 0%,74% { opacity:0 } 76% { opacity:.82 } 79%,100% { opacity:0 } }
+      @keyframes debris-loop { 0%,74% { opacity:0; transform:translateY(0) rotate(0deg) scale(.35) } 77% { opacity:1 } 84%,100% { opacity:0; transform:translateY(-88px) rotate(260deg) scale(1.4) } }
+      @media (prefers-reduced-motion:reduce) { .piece,.name-rig,.name-tile,.challenge,.cursor,.scan-beam,.clear-line,.reset-mark,.reset-ring,.loop-dot,.playfield,.aura-a,.aura-b,.star,.burst-ring,.spark-burst,.combo,.tile-glint,.screen-flash,.debris-cloud { animation:none; opacity:1; transform:none } .scan-beam,.clear-line,.reset-mark,.burst-ring,.spark-burst,.combo,.screen-flash,.debris-cloud { opacity:0 } .tile-glint { opacity:.16 } }
     </style>
   </defs>
 
   <rect width="560" height="340" rx="20" fill="#070a11"/>
   <rect x="1" y="1" width="558" height="338" rx="19" fill="none" stroke="#263244"/>
   <rect x="1" y="1" width="558" height="338" rx="19" fill="url(#grid)"/>
+  <g aria-hidden="true">
+    <ellipse class="aura-a" cx="170" cy="162" rx="150" ry="115" fill="url(#auraCyan)" filter="url(#softBlur)"/>
+    <ellipse class="aura-b" cx="410" cy="168" rx="145" ry="115" fill="url(#auraPink)" filter="url(#softBlur)"/>
+    <g fill="#e0f2fe"><circle class="star s1" cx="28" cy="55" r="1.5"/><circle class="star s2" cx="150" cy="52" r="1.2"/><circle class="star s3" cx="402" cy="55" r="1.4"/><circle class="star s1" cx="530" cy="62" r="1.5"/><circle class="star s2" cx="45" cy="315" r="1.4"/><circle class="star s3" cx="510" cy="308" r="1.4"/></g>
+  </g>
   <text x="24" y="29" fill="#64748b" font-family="ui-monospace, monospace" font-size="10" letter-spacing="2">PLAYER 01</text>
   <text x="536" y="29" text-anchor="end" fill="#64748b" font-family="ui-monospace, monospace" font-size="10" letter-spacing="2">LOOP <tspan class="loop-dot" fill="#22d3ee">●</tspan></text>
   <path d="M24 41H536" stroke="#263244"/>
 
-  <rect x="45" y="74" width="470" height="184" rx="12" fill="#0d1420" stroke="#263244"/>
+  <rect class="playfield" x="45" y="74" width="470" height="184" rx="12" fill="#0d1420" stroke="#263244"/>
   <path d="M45 226H515" stroke="#334155" stroke-dasharray="3 5"/>
+
+  <g aria-hidden="true">
+    <circle class="burst-ring r1" cx="280" cy="160" r="28" fill="none" stroke="#67e8f9" stroke-width="3" filter="url(#glow)"/>
+    <circle class="burst-ring r2" cx="280" cy="160" r="22" fill="none" stroke="#f0abfc" stroke-width="3" filter="url(#glow)"/>
+    <g class="spark-burst" stroke-linecap="round" filter="url(#glow)">
+      <path d="M280 92V74M280 246V228M212 160H194M366 160H348" stroke="#22d3ee" stroke-width="4"/>
+      <path d="M232 112L219 99M328 208L341 221M328 112L341 99M232 208L219 221" stroke="#fbbf24" stroke-width="4"/>
+      <path d="M254 96L247 80M313 224L306 208M344 134L360 127M200 193L216 186" stroke="#fb7185" stroke-width="3"/>
+    </g>
+  </g>
 
   <g class="piece p1" fill="#22d3ee" stroke="#a5f3fc" stroke-opacity=".45">
     <rect x="23" y="57" width="20" height="20" rx="3"/><rect x="43" y="57" width="20" height="20" rx="3"/>
@@ -71,30 +110,44 @@
     <path d="M80 110L86 104H164L158 110Z" fill="#1d5b6b" stroke="#67e8f9" stroke-opacity=".75"/>
     <path d="M158 110L164 104V182L158 188Z" fill="#082f3b" stroke="#0891b2"/>
     <rect x="80" y="110" width="78" height="78" rx="8" fill="#102a35" stroke="#22d3ee" stroke-width="2"/>
+    <path class="tile-glint" d="M89 117H139L99 181H84V140Z" fill="#ecfeff"/>
     <text x="119" y="165" text-anchor="middle" fill="#ecfeff" font-family="ui-sans-serif,system-ui,'Noto Sans JP',sans-serif" font-size="50" font-weight="800">西</text>
   </g>
   <g class="name-tile n2" filter="url(#glow)">
     <path d="M166 110L172 104H250L244 110Z" fill="#5b3f86" stroke="#c4b5fd" stroke-opacity=".75"/>
     <path d="M244 110L250 104V182L244 188Z" fill="#24143e" stroke="#7c3aed"/>
     <rect x="166" y="110" width="78" height="78" rx="8" fill="#291f3d" stroke="#a78bfa" stroke-width="2"/>
+    <path class="tile-glint" d="M175 117H225L185 181H170V140Z" fill="#faf5ff"/>
     <text x="205" y="165" text-anchor="middle" fill="#faf5ff" font-family="ui-sans-serif,system-ui,'Noto Sans JP',sans-serif" font-size="50" font-weight="800">原</text>
   </g>
   <g class="name-tile n3" filter="url(#glow)">
     <path d="M316 110L322 104H400L394 110Z" fill="#745512" stroke="#fde68a" stroke-opacity=".75"/>
     <path d="M394 110L400 104V182L394 188Z" fill="#3b2804" stroke="#d97706"/>
     <rect x="316" y="110" width="78" height="78" rx="8" fill="#35270d" stroke="#fbbf24" stroke-width="2"/>
+    <path class="tile-glint" d="M325 117H375L335 181H320V140Z" fill="#fffbeb"/>
     <text x="355" y="165" text-anchor="middle" fill="#fffbeb" font-family="ui-sans-serif,system-ui,'Noto Sans JP',sans-serif" font-size="50" font-weight="800">一</text>
   </g>
   <g class="name-tile n4" filter="url(#glow)">
     <path d="M402 110L408 104H486L480 110Z" fill="#22633e" stroke="#bbf7d0" stroke-opacity=".75"/>
     <path d="M480 110L486 104V182L480 188Z" fill="#0c3b22" stroke="#16a34a"/>
     <rect x="402" y="110" width="78" height="78" rx="8" fill="#123322" stroke="#4ade80" stroke-width="2"/>
+    <path class="tile-glint" d="M411 117H461L421 181H406V140Z" fill="#f0fdf4"/>
     <text x="441" y="165" text-anchor="middle" fill="#f0fdf4" font-family="ui-sans-serif,system-ui,'Noto Sans JP',sans-serif" font-size="50" font-weight="800">輝</text>
   </g>
   </g>
 
+  <g class="combo" font-family="ui-monospace,monospace" text-anchor="middle" filter="url(#glow)">
+    <text x="280" y="149" fill="#f8fafc" font-size="7" font-weight="700" letter-spacing="2">COMBO</text>
+    <text x="280" y="171" fill="url(#rainbow)" font-size="21" font-weight="900">×4</text>
+  </g>
+
   <rect class="scan-beam" x="48" y="78" width="8" height="143" fill="url(#scanner)" filter="url(#glow)"/>
   <rect class="clear-line" x="48" y="222" width="464" height="7" rx="3.5" fill="#ecfeff" filter="url(#glow)"/>
+  <g class="debris-cloud" fill="url(#rainbow)" filter="url(#glow)" aria-hidden="true">
+    <rect x="95" y="220" width="8" height="8" rx="2"/><rect x="150" y="224" width="6" height="6" rx="1"/><rect x="207" y="219" width="10" height="10" rx="2"/>
+    <rect x="270" y="223" width="7" height="7" rx="1"/><rect x="333" y="219" width="10" height="10" rx="2"/><rect x="390" y="224" width="6" height="6" rx="1"/><rect x="450" y="220" width="9" height="9" rx="2"/>
+  </g>
+  <rect class="screen-flash" x="1" y="1" width="558" height="338" rx="19" fill="url(#rainbow)"/>
   <g class="reset-mark" font-family="ui-monospace,monospace" text-anchor="middle">
     <circle class="reset-ring" cx="280" cy="160" r="36" fill="none" stroke="#22d3ee" stroke-width="3" stroke-dasharray="19 9" filter="url(#glow)"/>
     <text x="280" y="157" fill="#e2e8f0" font-size="10" font-weight="700" letter-spacing="2">NEXT</text>
