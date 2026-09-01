@@ -3,94 +3,125 @@
   <source media="(max-width: 600px)" srcset="./assets/banner-light-sm.svg">
   <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg">
-  <img src="./assets/banner-light.svg" alt="Ikki Nishihara — product builder at Lilac" width="100%">
+  <img src="./assets/banner-light.svg" alt="Ikki Nishihara — solo product builder at Lilac" width="100%">
 </picture>
 
-<p>
+<h3 align="center">I turn rough ideas into useful software.</h3>
+
+<p align="center">
+  企画から運用まで。曖昧な課題を、実際に使えるプロダクトへ。<br>
+  From the first sketch to production — product, design, code, security, and operations.
+</p>
+
+<p align="center">
+  <code>PLAN</code> → <code>DESIGN</code> → <code>BUILD</code> → <code>SHIP</code> → <code>IMPROVE</code>
+</p>
+
+<p align="center">
   <a href="https://rairakku.vercel.app"><img alt="Portfolio site" src="./assets/buttons/meta-portfolio.svg" width="73" height="24"></a>
   <a href="https://zaridasu.com"><img alt="zaridasu.com, running in production" src="./assets/buttons/meta-live.svg" width="99" height="24"></a>
   <a href="mailto:lilac.webstudio00@gmail.com"><img alt="Email" src="./assets/buttons/meta-email.svg" width="52" height="24"></a>
 </p>
 
-Product builder in Japan, running a one-person studio called **Lilac**（ライラック）.
-I take web products from the first sketch to the server they run on — planning, design,
-implementation, security, and the unglamorous operations work that comes after.
+## Now
 
-Most of what I write is client work or unreleased product code, so it lives in private
-repositories. What I can show is the software that is actually running.
+<table>
+  <tr>
+    <td valign="top">
+      <sub>BUILDING IN PUBLIC · ONGOING</sub>
+      <h3>100 DAYS / 100 APPS</h3>
+      <p>
+        One small web app, shipped every day. Each build records what I delegated to AI,
+        what I decided myself, and what broke on the way to production.
+      </p>
+      <p>
+        <a href="https://hundred-days.pages.dev/"><strong>Browse the live apps ↗</strong></a>
+        &nbsp;·&nbsp;
+        <a href="https://github.com/haranishi/hundred-days">View source ↗</a>
+      </p>
+      <p><code>JavaScript</code> <code>Cloudflare Pages</code> <code>APIs</code> <code>AI-assisted development</code></p>
+    </td>
+  </tr>
+</table>
 
-## Live
+## Selected work
 
-### ザリダス / Zaridasu
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <sub>01 · LIVE PRODUCT</sub>
+      <h3>ザリダス / Zaridasu</h3>
+      <p>
+        Citizen-science app for mapping invasive species. AI-assisted identification turns
+        field photos into sightings that conservation groups can act on.
+      </p>
+      <p>
+        Built solo, including the review queue, location privacy, EXIF stripping,
+        multilingual UI, and security review.
+      </p>
+      <p><code>Next.js</code> <code>Supabase</code> <code>Gemini API</code> <code>R3F</code> <code>PWA</code></p>
+      <a href="https://zaridasu.com"><img alt="Open zaridasu.com" src="./assets/buttons/open-zaridasu.svg" width="190" height="36"></a>
+    </td>
+    <td width="50%" valign="top">
+      <sub>02 · LIVE PRODUCT</sub>
+      <h3>シュフト / Shuft</h3>
+      <p>
+        Shift scheduling for small shops still running on paper and group chat.
+        Share one URL and the team can start without creating accounts.
+      </p>
+      <p>
+        Covers multiple stores, shift requests, reusable templates, and image/PDF export.
+        The live demo opens with sample data.
+      </p>
+      <p><code>Next.js</code> <code>Supabase</code> <code>jsPDF</code></p>
+      <a href="https://manager-app-woad.vercel.app"><img alt="Open the Shuft app" src="./assets/buttons/open-shuft.svg" width="150" height="36"></a>
+    </td>
+  </tr>
+</table>
 
-Citizen-science app for mapping invasive species. Anyone can post a photo, AI assists with
-identification, and the sightings become a map conservation groups can act on.
+## How I work
 
-I built it alone — the review queue, and the EXIF stripping that keeps a photo from giving
-away someone's home. I also ran a security review on my own authorization and location
-handling.
-
-`Next.js` `Supabase` `Gemini API` `R3F` `PWA` `i18n (4 locales)`
-
-<a href="https://zaridasu.com"><img alt="Open zaridasu.com" src="./assets/buttons/open-zaridasu.svg" width="190" height="36"></a>
-
-### シュフト / Shuft
-
-Shift scheduling for small shops, where the usual tooling is paper and a group chat. No
-sign-up: share one URL and your staff are in. Covers multiple stores, shift requests,
-templates, and image/PDF export. Deployed and open to try, preloaded with sample data.
-
-`Next.js` `Supabase` `jsPDF`
-
-<a href="https://manager-app-woad.vercel.app"><img alt="Open the Shuft app" src="./assets/buttons/open-shuft.svg" width="150" height="36"></a>
-
-## In progress
-
-Not finished, not pretending otherwise.
-
-- **find** — *MVP running.* Swipe through outfits instead of scrolling a catalogue, then hand
-  off to the retailer. No inventory, no checkout — the retailer handles both.  
-  `Next.js` `Rakuten API` `GA4`
-- **CaloMirror** — *prediction engine working.* Estimates calories from a photo of a meal, then
-  renders the body you are heading toward at 30 days and at one year as a 3D avatar.  
-  `Three.js` `Claude API` `NIH model`
-- **PriceScope** — *pricing logic done, no UI yet.* Shows a seller the price band that actually
-  moves, a sell-through score, and what to fix before posting.  
-  `TypeScript`
-
-## Also shipping
-
-- **Automation that runs unattended.** Daily scrapers, Sheets pipelines, and generated social
-  assets on a schedule — plus the failure diagnostics that catch a pipeline dying quietly,
-  which is how these things actually break.
-- **Client work through Lilac.** Multilingual venue sites, a recruiting microsite and
-  restaurant storefronts. I also moved a clinic booking system onto a modern stack without
-  downtime. It is under NDA, which is why none of it is linked here.
-- **[しゃかいもんだい図鑑](https://instagram.com/shakai_zukan)** — social issues explained
-  through characters who embody them. I designed the whole AI production pipeline.
+| Product | Engineering | Operations |
+|:--|:--|:--|
+| Find the smallest useful version and ship it. | Own the full stack instead of throwing work over a wall. | Build the monitoring and recovery path, not only the happy path. |
+| Start from the user's decision, not a feature list. | Treat accessibility, privacy, and security as product work. | Keep improving after launch with real usage and failures. |
 
 ## Stack
 
-`TypeScript` `Next.js` `React` `Three.js` `Python` `Supabase` `PostgreSQL` `Claude API`
+`TypeScript` · `Next.js` · `React` · `Three.js` · `Python` · `Supabase` · `PostgreSQL` · `Cloudflare` · `AI APIs`
 
-## Working together
+<details>
+  <summary><strong>More things I build</strong></summary>
+  <br>
 
-Websites, landing pages, product MVPs, and the automation behind them. One person the whole
-way through, so nothing gets lost handing the work from whoever designed it to whoever ships
-it. Tell me what you are trying to ship and I will reply with whether I am the right person
-for it.
+- **Automation that runs unattended** — scheduled jobs, scraping, Sheets pipelines,
+  generated media, and the diagnostics that catch quiet failures.
+- **Client products through Lilac** — websites, landing pages, product MVPs, and system
+  migrations. Most of this work stays private or under NDA.
+- **AI production systems** — workflows that turn research and structured inputs into
+  repeatable content, without losing the human review step.
 
-<!-- Change the line below when you are not taking work. -->
-Currently open to new work.
+</details>
 
-<a href="mailto:lilac.webstudio00@gmail.com"><img alt="Email me" src="./assets/buttons/email.svg" width="115" height="36"></a>
+<br>
 
 <img alt="Section divider" src="./assets/rule.svg" width="100%">
 
-<div align="center">
+<h2 align="center">Have something worth shipping?</h2>
 
-**Lilac**（ライラック）· web and product development in Japan
+<p align="center">
+  I run <strong>Lilac</strong>（ライラック）, a one-person product studio in Japan.<br>
+  Currently open to selected web products, MVPs, and automation projects.
+</p>
 
-[rairakku.vercel.app](https://rairakku.vercel.app) · [lilac.webstudio00@gmail.com](mailto:lilac.webstudio00@gmail.com)
+<p align="center">
+  <a href="mailto:lilac.webstudio00@gmail.com"><img alt="Email me" src="./assets/buttons/email.svg" width="115" height="36"></a>
+</p>
 
-</div>
+<p align="center">
+  <a href="https://rairakku.vercel.app">Portfolio</a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/haranishi/hundred-days">100 Days</a>
+  &nbsp;·&nbsp;
+  <a href="mailto:lilac.webstudio00@gmail.com">Email</a>
+</p>
