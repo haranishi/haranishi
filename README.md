@@ -1,6 +1,8 @@
 <picture>
-  <source media="(max-width: 600px)" srcset="./assets/tetris-banner-sm.svg">
-  <img src="./assets/tetris-banner.svg" alt="テトリスとネオン戦闘機の空戦から現れる、西原 一輝の名前" width="100%">
+  <source media="(prefers-reduced-motion: reduce) and (max-width: 600px)" srcset="./assets/atelier-still-sm.svg">
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/atelier-still.svg">
+  <source media="(max-width: 600px)" srcset="./assets/atelier-sm.svg">
+  <img src="./assets/atelier.svg" alt="実際につくった6つのアプリが浮かぶ3Dのアトリエと、西原 一輝の立体の名前" width="100%">
 </picture>
 
 <h2 align="center">100日、100個のWebアプリ。</h2>
