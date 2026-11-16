@@ -1,0 +1,51 @@
+name: Crayfish contributions
+
+on:
+  schedule:
+    - cron: "17 21 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "assets/src/crayfish/**"
+      - ".github/workflows/crayfish.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: crayfish-contributions
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Test
+        run: node --test assets/src/crayfish/render.test.mjs
+
+      - name: Generate
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OWNER: ${{ github.repository_owner }}
+        run: node assets/src/crayfish/generate.mjs --user "$OWNER" --out dist
+
+      - name: Publish orphan output branch
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/crayfish-dist
+          cp dist/*.svg /tmp/crayfish-dist/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan output
+          git rm -rf .
+          cp /tmp/crayfish-dist/*.svg ./
+          git add -- crayfish-light.svg crayfish-dark.svg crayfish-light-sm.svg crayfish-dark-sm.svg crayfish-light-still.svg crayfish-dark-still.svg
+          git commit -m "Update crayfish contribution graphics"
+          # The branch stores only generated images, so replace it each day.
+          git push --force origin HEAD:output
