@@ -1,92 +1,52 @@
-<p align="center"><samp>IKKI NISHIHARA · PRODUCT BUILDER · JAPAN</samp></p>
+## Hi, I'm Ikki Nishihara (西原 一輝) 👋
+
+- 🎓 4th-year undergrad @ [Kanazawa Lab](https://www.akita-pu.ac.jp/gakubu/kyoin/kyoin-sys/123) (Environmental Management), Akita Prefectural University
+- 🦞 Research: tracking invasive crayfish with citizen science × environmental DNA — [Zaridasu](https://zaridasu.com)
+- 💼 Running [Lilac](https://rairakku.com), my web & app development studio
+- 🚀 [100 Days / 100 Apps](https://rairakku.com/100days/) — one small web app a day, built with AI coding agents
+- 🧩 [Merged pull requests](https://github.com/search?q=author%3Aharanishi+is%3Apr+is%3Amerged+-user%3Aharanishi&type=pullrequests) to ArtCraft, Turso, Babylon.js, Leaflet and more
+- 📫 Links: [rairakku.com/lab/links](https://rairakku.com/lab/links/)
+
+## 🌱 Skills
+
+<!-- In srcset, commas split image candidates (GitHub cut the URL after the first icon), so keep them encoded as %2C. -->
 
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (max-width: 600px)" srcset="./assets/atelier-still-sm.svg">
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/atelier-still.svg">
-  <source media="(max-width: 600px)" srcset="./assets/atelier-sm.svg">
-  <img src="./assets/atelier.svg" alt="実際につくった6つのアプリが浮かぶ3Dのアトリエと、西原 一輝の立体の名前" width="100%">
+  <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=ts%2Cjs%2Chtml%2Ccss%2Cpy%2Crust%2Cswift%2Ccs%2Creact%2Cnextjs%2Cvite%2Ctailwind%2Cthreejs%2Castro%2Cnodejs%2Cwasm%2Csupabase%2Cpostgres%2Csqlite%2Ccloudflare%2Cworkers%2Cvercel%2Cvitest%2Cgithubactions&perline=6&theme=light">
+  <source media="(max-width: 600px)" srcset="https://skillicons.dev/icons?i=ts%2Cjs%2Chtml%2Ccss%2Cpy%2Crust%2Cswift%2Ccs%2Creact%2Cnextjs%2Cvite%2Ctailwind%2Cthreejs%2Castro%2Cnodejs%2Cwasm%2Csupabase%2Cpostgres%2Csqlite%2Ccloudflare%2Cworkers%2Cvercel%2Cvitest%2Cgithubactions&perline=6">
+  <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=ts%2Cjs%2Chtml%2Ccss%2Cpy%2Crust%2Cswift%2Ccs%2Creact%2Cnextjs%2Cvite%2Ctailwind%2Cthreejs%2Castro%2Cnodejs%2Cwasm%2Csupabase%2Cpostgres%2Csqlite%2Ccloudflare%2Cworkers%2Cvercel%2Cvitest%2Cgithubactions&perline=12&theme=light">
+  <img src="https://skillicons.dev/icons?i=ts,js,html,css,py,rust,swift,cs,react,nextjs,vite,tailwind,threejs,astro,nodejs,wasm,supabase,postgres,sqlite,cloudflare,workers,vercel,vitest,githubactions&perline=12" alt="TypeScript, JavaScript, HTML, CSS, Python, Rust, Swift, C#, React, Next.js, Vite, Tailwind CSS, Three.js, Astro, Node.js, WebAssembly, Supabase, PostgreSQL, SQLite, Cloudflare, Cloudflare Workers, Vercel, Vitest, GitHub Actions">
 </picture>
 
-<h2 align="center">アイデアを、触れるプロダクトに。</h2>
+<sub>+ Playwright · Hono · Drizzle · Turso · Phaser · Google&nbsp;Apps&nbsp;Script</sub>
 
-<p align="center">
-  西原 一輝 / <strong>Ikki Nishihara</strong><br>
-  AIとつくる小さなWebアプリから、Rustの業務アプリ、みんなで遊ぶゲームまで。<br>
-  つくって、公開して、使い心地を磨く。
-</p>
+## 🛠️ Tools
 
-<p align="center">
-  <a href="https://hundred-days.pages.dev/"><kbd>▶ つくったアプリを見る</kbd></a>
-  &nbsp; · &nbsp;
-  <a href="#projects">Projects</a>
-  &nbsp; / &nbsp;
-  <a href="#stack">Stack</a>
-  &nbsp; / &nbsp;
-  <a href="#open-source">Open Source</a>
-  &nbsp; / &nbsp;
-  <a href="#activity">Activity</a>
-</p>
+<picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=git%2Cgithub%2Cvscode%2Cfigma%2Cps%2Cai%2Cpr%2Cae%2Cblender%2Cunity%2Cobsidian%2Cnotion&perline=6&theme=light">
+  <source media="(max-width: 600px)" srcset="https://skillicons.dev/icons?i=git%2Cgithub%2Cvscode%2Cfigma%2Cps%2Cai%2Cpr%2Cae%2Cblender%2Cunity%2Cobsidian%2Cnotion&perline=6">
+  <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=git%2Cgithub%2Cvscode%2Cfigma%2Cps%2Cai%2Cpr%2Cae%2Cblender%2Cunity%2Cobsidian%2Cnotion&perline=12&theme=light">
+  <img src="https://skillicons.dev/icons?i=git,github,vscode,figma,ps,ai,pr,ae,blender,unity,obsidian,notion&perline=12" alt="Git, GitHub, VS Code, Figma, Photoshop, Illustrator, Premiere Pro, After Effects, Blender, Unity, Obsidian, Notion">
+</picture>
 
-## Projects
+<sub>+ Claude Code · Codex · Xcode</sub>
 
-日々の小さな実験も、道具として育てるプロダクトも。実際に手を動かしているプロジェクトです。
+## 🧪 Also Tried
 
-### 01 / [hundred-days](https://github.com/haranishi/hundred-days)
+<picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=kotlin%2Candroidstudio%2Cflutter%2Cdart%2Cgo%2Cdeno%2Cdocker%2Cfastapi%2Cunreal&perline=6&theme=light">
+  <source media="(max-width: 600px)" srcset="https://skillicons.dev/icons?i=kotlin%2Candroidstudio%2Cflutter%2Cdart%2Cgo%2Cdeno%2Cdocker%2Cfastapi%2Cunreal&perline=6">
+  <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=kotlin%2Candroidstudio%2Cflutter%2Cdart%2Cgo%2Cdeno%2Cdocker%2Cfastapi%2Cunreal&perline=12&theme=light">
+  <img src="https://skillicons.dev/icons?i=kotlin,androidstudio,flutter,dart,go,deno,docker,fastapi,unreal&perline=12" alt="Kotlin, Android Studio, Flutter, Dart, Go, Deno, Docker, FastAPI, Unreal Engine">
+</picture>
 
-**100日、100個のWebアプリ。** AIと一緒に、毎日ひとつ小さなアプリを制作・公開するチャレンジ。ゲーム、音、ビジュアル表現を試しています。
+## 🦞 Crayfish Contributions
 
-`JavaScript` `HTML / CSS` `Cloudflare Pages` · [アプリを見る ↗](https://hundred-days.pages.dev/)
-
-### 02 / [irori](https://github.com/haranishi/irori)
-
-**スマホがコントローラーになる、Webゲーム機。** 大画面を囲んで、みんなで遊ぶ。リアルタイム通信とゲーム用SDKを備えたOSSプロジェクトです。
-
-`TypeScript` `WebSocket` `Cloudflare Workers` · Alpha
-
-### 03 / [business-apps-rs](https://github.com/haranishi/business-apps-rs)
-
-**業務アプリを、Rustで組み立てる。** 型付きフィールドから顧客・在庫・タスク管理へ。ブラウザーのUIからAPI、データ保存までをつなぐ基盤を開発中。
-
-`Rust` `WebAssembly` `Axum` `SQLite` · 開発プレビュー
-
-### 04 / [menu-bar-pet](https://github.com/haranishi/menu-bar-pet)
-
-**メニューバーに、小さな相棒を。** CPU負荷やAIの使用枠に反応するmacOS向けペット。SwiftのネイティブUIとRustのコアを組み合わせています。
-
-`Swift` `SwiftUI / AppKit` `Rust` · MVP
-
-<p align="right"><a href="https://github.com/haranishi?tab=repositories&type=source">ほかの制作プロジェクトを見る →</a></p>
-
-## Stack
-
-プロジェクトで使っている技術。目的に合わせて、Web・ネイティブ・サーバーを行き来しています。
-
-- **Web & interaction** — JavaScript / TypeScript / HTML / CSS / WebAssembly
-- **Backend & data** — Rust / Axum / Tokio / SQLite / WebSocket
-- **Native** — Swift / SwiftUI / AppKit
-- **Delivery** — Cloudflare Pages / Workers / Durable Objects
-
-## Open Source
-
-自分のプロダクトをつくるだけでなく、使う道具にも手を入れています。外部リポジトリ向けに作成したPRは、[**73件がマージ済み**](https://github.com/search?q=author%3Aharanishi+is%3Apr+is%3Amerged+-user%3Aharanishi&type=pullrequests)（2026-10-25確認）。
-
-- **[Leaflet / #10457](https://github.com/Leaflet/Leaflet/pull/10457)** — アイコンを変更した後も、マーカーのドラッグを継続できるように修正。
-- **[Babylon-Lite / #841](https://github.com/BabylonJS/Babylon-Lite/pull/841)** — カスタム描画エフェクトに使えるRenderTargetパスの公開APIを追加。
-- **[vectorcraft / #2847](https://github.com/storytold/vectorcraft/pull/2847)** — ルーラーの原点変更後に、ステータスバーの座標が正しく表示されるように修正。
-
-## Activity
-
-<a href="https://github.com/haranishi?tab=overview">
-  <picture>
-    <source media="(max-width: 600px)" srcset="./assets/activity-sm.svg">
-    <img src="./assets/activity.svg" alt="GitHubの活動実績。過去1年のコントリビューション2,749件、公開リポジトリ61件。2026年10月25日時点のスナップショット。" width="100%">
-  </picture>
-</a>
-
-過去1年のコントリビューション **2,749件** ／ 公開リポジトリ **61件**（うち[ソースリポジトリ32件](https://github.com/haranishi?tab=repositories&type=source)）。
-
-<sub>2026-10-25時点の公開表示。集計期間：2025-10-26〜2026-10-25。数値とグラフは取得時点の記録です。最新の活動は<a href="https://github.com/haranishi?tab=overview">GitHubのプロフィール</a>へ。</sub>
-
----
-
-<p align="center"><samp>SMALL IDEAS. REAL PRODUCTS. KEEP SHIPPING.</samp></p>
+<picture>
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/haranishi/haranishi/output/crayfish-light-still.svg">
+  <source media="(prefers-reduced-motion: reduce)" srcset="https://raw.githubusercontent.com/haranishi/haranishi/output/crayfish-dark-still.svg">
+  <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/haranishi/haranishi/output/crayfish-light-sm.svg">
+  <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/haranishi/haranishi/output/crayfish-dark-sm.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/haranishi/haranishi/output/crayfish-light.svg">
+  <img src="https://raw.githubusercontent.com/haranishi/haranishi/output/crayfish-dark.svg" alt="A crayfish walks across my GitHub contribution graph and eats the green squares">
+</picture>
