@@ -1,4 +1,4 @@
-## Hi, I'm Ikki Nishihara (西原 一輝) 👋
+## Hi, I'm Ikki Nishihara 👋<br><sub>西原 一輝</sub>
 
 - 🎓 4th-year undergrad @ [Kanazawa Lab](https://www.akita-pu.ac.jp/gakubu/kyoin/kyoin-sys/123) (Environmental Management), Akita Prefectural University
 - 🦞 Research: tracking invasive crayfish with citizen science × environmental DNA — [Zaridasu](https://zaridasu.com)
